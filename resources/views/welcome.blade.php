@@ -63,7 +63,6 @@
             @endforeach
             </tbody>
         </table>
-    <div class="container">
         <div class="container">
             <h3>Matches Played</h3>
         </div>
@@ -94,7 +93,6 @@
             </tbody>
         </table>
         <button class="btn btn-danger" onclick="window.location='{{ route("clear") }}'" type="button">Clear Leaderboard</button>
-    </div>
 @else
     <div class="container">
         <h3>No Matches Played</h3>
