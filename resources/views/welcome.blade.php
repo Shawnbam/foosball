@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="border:5px solid #cecece;">
         <div class="modal-body">
             <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
                 <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
@@ -63,8 +63,6 @@
             @endforeach
             </tbody>
         </table>
-    
-    </div>
     <div class="container">
         <div class="container">
             <h3>Matches Played</h3>
@@ -102,6 +100,7 @@
         <h3>No Matches Played</h3>
     </div>
 @endif
+ </div>
 <script>
     function jq() {
         var t1= $('#team1').val().trim();;
