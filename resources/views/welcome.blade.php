@@ -22,7 +22,7 @@
                     <input type="text" name="team2" id="team2" placeholder="Team 2 Name" > &nbsp;
                     <input type="number" name="team1g" min="0" placeholder="Team 1 Goals" id="goal1" > &nbsp;
                     <input type="number" name="team2g" min="0" placeholder="Team 2 Goals" id="goal2" > &nbsp;
-                    <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Lets Play">
+                    <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Save">
                     {{ csrf_field() }}
             </form>
         </div>
