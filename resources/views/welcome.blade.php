@@ -16,18 +16,17 @@
 <body>
 <div class="modal-body">
     <div class="row col-md-offset-0">
-        {{-- action="{{ route('match.addteam') }}"--}}
         <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
-            {{--<div class="alert col-md-4 col-md-offset-1 alert-danger">--}}
-            <p class="alert alert-danger col-md-4 col-md-offset-1" id="err" hidden> haha</p>
-            {{--</div>--}}
             <br><br>
             <div class="col-md-offset-1">
+            <div class="danger">
+                <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
+            </div> 
                 <input type="text" name="team1" id="team1" placeholder="Team 1 Name" > &nbsp;
                 <input type="text" name="team2" id="team2" placeholder="Team 2 Name" > &nbsp;
                 <input type="number" name="team1g" min="0" placeholder="Team 1 Goals" id="goal1" > &nbsp;
                 <input type="number" name="team2g" min="0" placeholder="Team 2 Goals" id="goal2" > &nbsp;
-                <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Lets Play">
+                <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Save Matah ">
                 {{ csrf_field() }}
             </div>
 
