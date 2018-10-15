@@ -14,9 +14,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="modal-body">
-    <div class="row col-md-offset-0">
-        {{-- action="{{ route('match.addteam') }}"--}}
+    <div class="container">
+        <div class="modal-body">
         <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
             <div class="col-md-offset-1">
             <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
@@ -27,12 +26,8 @@
                 <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Lets Play">
                 {{ csrf_field() }}
             </div>
-
         </form>
     </div>
-</div>
-
-    <div class="container">
         <div class="container">
             <h3>Leaderboard -</h3>
         </div>
