@@ -14,27 +14,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-        
-  
-    <div class="container">
-    <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
-            <br><br>
-            <div class="danger">
+<div class="modal-body">
+    <div class="row col-md-offset-0">
+        {{-- action="{{ route('match.addteam') }}"--}}
+        <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
+        <div class="danger">
                 <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
-            </div> 
+        </div> 
+           <br><br>
+            <div class="col-md-offset-1">
                 <input type="text" name="team1" id="team1" placeholder="Team 1 Name" > &nbsp;
                 <input type="text" name="team2" id="team2" placeholder="Team 2 Name" > &nbsp;
                 <input type="number" name="team1g" min="0" placeholder="Team 1 Goals" id="goal1" > &nbsp;
                 <input type="number" name="team2g" min="0" placeholder="Team 2 Goals" id="goal2" > &nbsp;
-                <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Save Matah ">
+                <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Lets Play">
                 {{ csrf_field() }}
             </div>
 
         </form>
+    </div>
+</div>
+@if($matches->count() > 0)
+    <div class="container">
         <div class="container">
             <h3>Leaderboard -</h3>
         </div>
-    @if($matches->count() > 0)
+
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
             <tr class="table-danger">
