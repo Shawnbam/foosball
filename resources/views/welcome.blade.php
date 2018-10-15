@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container" style="border:5px solid #cecece;">
+    <div class="container" style="border:2px solid #cecece;">
         <div class="modal-body">
             <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
                 <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
