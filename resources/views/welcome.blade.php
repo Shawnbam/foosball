@@ -62,7 +62,7 @@
             </tbody>
         </table>
         <div class="container">
-            <h3>Matches Played</h3>
+            <h3>Matches Played -</h3>
         </div>
 
         <table class="table table-bordered table-striped">
