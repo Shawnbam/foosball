@@ -18,11 +18,8 @@
     <div class="row col-md-offset-0">
         {{-- action="{{ route('match.addteam') }}"--}}
         <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
-        <div class="danger">
-                <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
-        </div> 
-           <br><br>
             <div class="col-md-offset-1">
+            <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
                 <input type="text" name="team1" id="team1" placeholder="Team 1 Name" > &nbsp;
                 <input type="text" name="team2" id="team2" placeholder="Team 2 Name" > &nbsp;
                 <input type="number" name="team1g" min="0" placeholder="Team 1 Goals" id="goal1" > &nbsp;
