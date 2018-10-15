@@ -97,7 +97,7 @@
         <button class="btn btn-danger" onclick="window.location='{{ route("clear") }}'" type="button">Clear Leaderboard</button>
     </div>
 @else
-    <h3 class="col-md-offset-1">No Matches Played</h3>
+    <h3>No Matches Played</h3>
 @endif
 <script>
     function jq() {
