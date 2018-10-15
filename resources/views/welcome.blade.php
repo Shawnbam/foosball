@@ -14,11 +14,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="modal-body">
-    <div class="row col-md-offset-0">
-        <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
+        
+  
+    <div class="container">
+    <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
             <br><br>
-            <div class="col-md-offset-1">
             <div class="danger">
                 <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
             </div> 
@@ -31,14 +31,10 @@
             </div>
 
         </form>
-    </div>
-</div>
-@if($matches->count() > 0)
-    <div class="container">
         <div class="container">
             <h3>Leaderboard -</h3>
         </div>
-
+    @if($matches->count() > 0)
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
             <tr class="table-danger">
