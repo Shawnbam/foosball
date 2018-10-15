@@ -16,18 +16,16 @@
 <body>
     <div class="container">
         <div class="modal-body">
-        <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
-            <div class="col-md-offset-1">
-            <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
-                <input type="text" name="team1" id="team1" placeholder="Team 1 Name" > &nbsp;
-                <input type="text" name="team2" id="team2" placeholder="Team 2 Name" > &nbsp;
-                <input type="number" name="team1g" min="0" placeholder="Team 1 Goals" id="goal1" > &nbsp;
-                <input type="number" name="team2g" min="0" placeholder="Team 2 Goals" id="goal2" > &nbsp;
-                <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Lets Play">
-                {{ csrf_field() }}
-            </div>
-        </form>
-    </div>
+            <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
+                <p>Win = <strong>5 points</strong> Lose =<strong> -2 points</strong></p>
+                    <input type="text" name="team1" id="team1" placeholder="Team 1 Name" > &nbsp;
+                    <input type="text" name="team2" id="team2" placeholder="Team 2 Name" > &nbsp;
+                    <input type="number" name="team1g" min="0" placeholder="Team 1 Goals" id="goal1" > &nbsp;
+                    <input type="number" name="team2g" min="0" placeholder="Team 2 Goals" id="goal2" > &nbsp;
+                    <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Lets Play">
+                    {{ csrf_field() }}
+            </form>
+        </div>
         <div class="container">
             <h3>Leaderboard -</h3>
         </div>
