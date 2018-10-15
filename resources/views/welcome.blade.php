@@ -1,96 +1,124 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+    <title>Fooseball</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="modal-body">
+    <div class="row col-md-offset-0">
+        {{-- action="{{ route('match.addteam') }}"--}}
+        <form method="post" class="form-inline" id="matchform" onsubmit="return jq()">
+            {{--<div class="alert col-md-4 col-md-offset-1 alert-danger">--}}
+            <p class="alert alert-danger col-md-4 col-md-offset-1" id="err" hidden> haha</p>
+            {{--</div>--}}
+            <br><br>
+            <div class="col-md-offset-1">
+                <input type="text" name="team1" id="team1" placeholder="Team 1 Name" > &nbsp;
+                <input type="text" name="team2" id="team2" placeholder="Team 2 Name" > &nbsp;
+                <input type="number" name="team1g" min="0" placeholder="Team 1 Goals" id="goal1" > &nbsp;
+                <input type="number" name="team2g" min="0" placeholder="Team 2 Goals" id="goal2" > &nbsp;
+                <input type="submit" name="submit" class="btn btn-success" data-dismiss="modal" value="Lets Play">
+                {{ csrf_field() }}
             </div>
+
+        </form>
+    </div>
+</div>
+@if($matches->count() > 0)
+    <div class="container">
+        <div class="container">
+            <h3>Leaderboard -</h3>
         </div>
-    </body>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr class="table-danger">
+                <th scope="col">#</th>
+                <th scope="col">Team Name</th>
+                <th scope="col">Games Played</th>
+                <th scope="col">Wins</th>
+                <th scope="col">Loss</th>
+                <th scope="col">Ties</th>
+                <th scope="col">Score</th>
+                <th scope="col">Goals</th>
+                <th scope="col">Goals For</th>
+                <th scope="col">Goals Against</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($teams as $team)
+                <tr>
+                    <th scope="row">{{ $t++ }}</th>
+                    <td>{{ $team->teamname }}</td>
+                    <td>{{ $team->games }}</td>
+                    <td>{{ $team->wins }}</td>
+                    <td>{{ $team->loss }}</td>
+                    <td>{{ $team->draws }}</td>
+                    <td>{{ $team->points }}</td>
+                    <td>{{ $team->goals }}</td>
+                    <td>{{ $team->goalsf }}</td>
+                    <td>{{ $team->goalsa }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+    </div>
+    <div class="container">
+        <div class="container">
+            <h3>Matches Played</h3>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr class="table-danger">
+                <th scope="col">#</th>
+                <th scope="col">Team 1 Name</th>
+                <th scope="col">Team 2 Name</th>
+                <th scope="col">Winner</th>
+                <th scope="col">Team 1 Goals</th>
+                <th scope="col">Team 2 Goals</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($matches as $match)
+                <tr>
+                    <th scope="row">{{ $m++ }}</th>
+                    <td>{{ $match->team1 }}</td>
+                    <td>{{ $match->team2 }}</td>
+                    <td>{{ $match->winner }}</td>
+                    <td>{{ $match->team1g }}</td>
+                    <td>{{ $match->team2g }}</td>
+                </tr>
+            @endforeach
+
+            </tbody>
+        </table>
+        <button class="btn btn-danger" onclick="window.location='{{ route("clear") }}'" type="button">Clear Leaderboard</button>
+    </div>
+@else
+    <h3 class="col-md-offset-1">No Matches Played</h3>
+@endif
+<script>
+    function jq() {
+        var t1= $('#team1').val().trim();;
+        var t2= $('#team2').val().trim();;
+        if(t1 == t2){
+            window.alert("Same Team Names!");
+            return false;
+        }
+    };
+</script>
+</body>
+
 </html>
