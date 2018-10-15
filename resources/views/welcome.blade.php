@@ -26,10 +26,11 @@
                     {{ csrf_field() }}
             </form>
         </div>
+        
+    @if($matches->count() > 0)
         <div class="container">
             <h3>Leaderboard -</h3>
         </div>
-    @if($matches->count() > 0)
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
             <tr class="table-danger">
