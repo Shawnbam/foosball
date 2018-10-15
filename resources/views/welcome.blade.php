@@ -41,7 +41,6 @@
                 <th scope="col">Loss</th>
                 <th scope="col">Ties</th>
                 <th scope="col">Score</th>
-                <th scope="col">Goals</th>
                 <th scope="col">Goals For</th>
                 <th scope="col">Goals Against</th>
             </tr>
@@ -56,7 +55,6 @@
                     <td>{{ $team->loss }}</td>
                     <td>{{ $team->draws }}</td>
                     <td>{{ $team->points }}</td>
-                    <td>{{ $team->goals }}</td>
                     <td>{{ $team->goalsf }}</td>
                     <td>{{ $team->goalsa }}</td>
                 </tr>
