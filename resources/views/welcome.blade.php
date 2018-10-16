@@ -82,7 +82,13 @@
                     <th scope="row">{{ $m++ }}</th>
                     <td>{{ $match->team1 }}</td>
                     <td>{{ $match->team2 }}</td>
-                    <td>{{ $match->winner }}</td>
+                    @if($match->winner == 1)
+                        <td>{{ $match->team1 }}</td>
+                    @elseif($match->winner == 2)
+                        <td>{{ $match->team2 }}</td>
+                    @else
+                        <td>{{ "Tie" }}</td>
+                    @endif
                     <td>{{ $match->team1g }}</td>
                     <td>{{ $match->team2g }}</td>
                 </tr>
