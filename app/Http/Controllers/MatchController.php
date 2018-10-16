@@ -102,7 +102,7 @@ class MatchController extends Controller{
     }
 
     public function gaddteam(){
-        $teams = Team::all()->
+        $teams = Team->
             orderBy('points', 'desc')
             ->get();
         $match = Match::all();
