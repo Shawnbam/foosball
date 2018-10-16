@@ -97,13 +97,14 @@ class MatchController extends Controller{
         $match->team1g = $team1g;
         $match->team2g = $team2g;
         $match->save();
-//        $tags = Tag::all();
         return redirect()->route('match.gaddteam');
 
     }
 
     public function gaddteam(){
-        $teams = Team::all();
+        $teams = Team::all()->
+            orderBy('points', 'desc')
+            ->get();
         $match = Match::all();
 
         return view('welcome', ['teams' => $teams, 'matches' => $match, 't' => 1, 'm' => 1]);
